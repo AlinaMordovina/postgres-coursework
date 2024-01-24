@@ -31,7 +31,8 @@ class DBManager:
 
         with self.conn.cursor() as cur:
             cur.execute("""
-                    SELECT employers.name, vacancies.name, vacancies.salary_from, vacancies.salary_to, vacancies.url FROM employers
+                    SELECT employers.name, vacancies.name, vacancies.salary_from, vacancies.salary_to, vacancies.url
+                    FROM employers
                     JOIN vacancies USING(employer_id)
                     ORDER BY vacancies.salary_from, vacancies.salary_to
                 """)
